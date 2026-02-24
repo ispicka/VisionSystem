@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <OutputType>Exe</OutputType>
+  <ItemGroup>
+    <ProjectReference Include="..\Vision.Service\Vision.Service.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+  </ItemGroup>
+  <PropertyGroup><AssemblyName>Vision.Headless</AssemblyName></PropertyGroup>
+</Project>

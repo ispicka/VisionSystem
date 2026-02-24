@@ -1,0 +1,11 @@
+bin/
+obj/
+.vscode/
+.idea/
+_output/
+*.user
+*.suo
+*.log
+.vs/
+[Bb]in/
+[Oo]bj/

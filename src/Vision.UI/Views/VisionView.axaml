@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Vision.UI.Views.VisionView">
+  <Grid Margin="16" RowDefinitions="Auto,Auto,*" ColumnDefinitions="*,*">
+
+    <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+               Text="Detekce mezery (test panel)"
+               Classes="h1"
+               Margin="0,0,0,12"/>
+
+    <!-- Controls -->
+    <Border Grid.Row="1" Grid.ColumnSpan="2" Classes="card" Margin="0,0,0,12">
+      <Grid ColumnDefinitions="Auto,Auto,Auto,*" RowDefinitions="Auto,Auto">
+        <Button Grid.Row="0" Grid.Column="0" Classes="primary"
+                Content="Přepočítat Left"
+                Command="{Binding RecomputeLeftCommand}"
+                Margin="0,0,10,0"/>
+        <Button Grid.Row="0" Grid.Column="1" Classes="primary"
+                Content="Přepočítat Right"
+                Command="{Binding RecomputeRightCommand}"
+                Margin="0,0,10,0"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Classes="muted"
+                   Text="(spustí výpočet nad posledním načteným snímkem)"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Orientation="Horizontal" Spacing="14" Margin="0,10,0,0">
+          <TextBlock Text="Left:" Classes="muted"/>
+          <TextBlock Text="{Binding LeftGapText}" />
+          <TextBlock Text="Right:" Classes="muted" Margin="10,0,0,0"/>
+          <TextBlock Text="{Binding RightGapText}" />
+          <TextBlock Text="{Binding LeftQualityText}" Classes="muted" Margin="20,0,0,0"/>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- Left image preview -->
+    <Border Grid.Row="2" Grid.Column="0" Classes="card" Margin="0,0,10,0">
+      <Grid RowDefinitions="Auto,*">
+        <StackPanel Spacing="6">
+          <TextBlock Text="Left (poslední načtený)" Classes="h2"/>
+          <TextBlock Text="{Binding LeftImagePath}" Classes="muted" TextWrapping="Wrap"/>
+        </StackPanel>
+        <Border Grid.Row="1" Margin="0,10,0,0" Background="#F3F4F6" CornerRadius="10" Padding="8">
+          <Viewbox Stretch="Uniform">
+            <Image Source="{Binding LeftBitmap}"/>
+          </Viewbox>
+        </Border>
+      </Grid>
+    </Border>
+
+    <!-- Right image preview -->
+    <Border Grid.Row="2" Grid.Column="1" Classes="card" Margin="10,0,0,0">
+      <Grid RowDefinitions="Auto,*">
+        <StackPanel Spacing="6">
+          <TextBlock Text="Right (poslední načtený)" Classes="h2"/>
+          <TextBlock Text="{Binding RightImagePath}" Classes="muted" TextWrapping="Wrap"/>
+        </StackPanel>
+        <Border Grid.Row="1" Margin="0,10,0,0" Background="#F3F4F6" CornerRadius="10" Padding="8">
+          <Viewbox Stretch="Uniform">
+            <Image Source="{Binding RightBitmap}"/>
+          </Viewbox>
+        </Border>
+      </Grid>
+    </Border>
+
+  </Grid>
+</UserControl>

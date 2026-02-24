@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\Vision.Core\Vision.Core.csproj" />
+		<ProjectReference Include="..\Vision.IO.Plc\Vision.IO.Plc.csproj" />
+		<ProjectReference Include="..\Vision.IO.Cameras\Vision.IO.Cameras.csproj" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+	</ItemGroup>
+	<PropertyGroup>
+		<AssemblyName>Vision.Service</AssemblyName>
+	</PropertyGroup>
+</Project>

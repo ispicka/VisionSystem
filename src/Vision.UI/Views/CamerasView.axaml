@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Vision.UI.Views.CamerasView">
+  <Grid Margin="16" RowDefinitions="Auto,Auto,*" ColumnDefinitions="*,*">
+
+    <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+               Text="Aktuální obrazy (výběr souborů)"
+               Classes="h1"
+               Margin="0,0,0,12"/>
+
+    <!-- Buttons -->
+    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Spacing="10" Margin="0,0,0,12">
+      <Button Classes="primary" Content="Vybrat Left obrázek" Command="{Binding SelectLeftImageCommand}"/>
+      <Button Classes="primary" Content="Vybrat Right obrázek" Command="{Binding SelectRightImageCommand}"/>
+      <Button Classes="secondary" Content="Vyčistit" Command="{Binding ClearImagesCommand}"/>
+    </StackPanel>
+
+    <!-- Left -->
+    <Border Grid.Row="2" Grid.Column="0" Classes="card" Margin="0,0,10,0">
+      <Grid RowDefinitions="Auto,*">
+        <StackPanel Spacing="6">
+          <TextBlock Text="Left" Classes="h2"/>
+          <TextBlock Text="{Binding LeftImagePath}" Classes="muted" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Margin="0,10,0,0" Background="#F3F4F6" CornerRadius="10" Padding="8">
+          <Viewbox Stretch="Uniform">
+            <Image Source="{Binding LeftBitmap}" />
+          </Viewbox>
+        </Border>
+      </Grid>
+    </Border>
+
+    <!-- Right -->
+    <Border Grid.Row="2" Grid.Column="1" Classes="card" Margin="10,0,0,0">
+      <Grid RowDefinitions="Auto,*">
+        <StackPanel Spacing="6">
+          <TextBlock Text="Right" Classes="h2"/>
+          <TextBlock Text="{Binding RightImagePath}" Classes="muted" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <Border Grid.Row="1" Margin="0,10,0,0" Background="#F3F4F6" CornerRadius="10" Padding="8">
+          <Viewbox Stretch="Uniform">
+            <Image Source="{Binding RightBitmap}" />
+          </Viewbox>
+        </Border>
+      </Grid>
+    </Border>
+
+  </Grid>
+</UserControl>

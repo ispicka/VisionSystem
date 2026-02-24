@@ -1,0 +1,14 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <!-- Set one of these when building:
+         PC:  dotnet build -c Release -p:DefineConstants=PC
+         RPI: dotnet build -c Release -p:DefineConstants=RPI
+    -->
+    <DefineConstants>$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+</Project>

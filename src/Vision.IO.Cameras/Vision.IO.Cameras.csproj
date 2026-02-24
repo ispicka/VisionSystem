@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="S7netplus" Version="0.20.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vision.Core\Vision.Core.csproj" />
+  </ItemGroup>
+  <PropertyGroup><AssemblyName>Vision.IO.Cameras</AssemblyName></PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants);PC</DefineConstants>
+  </PropertyGroup>
+</Project>

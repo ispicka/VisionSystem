@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Vision.UI.ViewModels"
+        mc:Ignorable="d"
+        x:Class="Vision.UI.MainWindow"
+        Width="1100" Height="720"
+        Title="KERN Vision Control">
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto,*,Auto" ColumnDefinitions="*">
+    <!-- Top bar -->
+    <Border Grid.Row="0" Padding="10" Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+      <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <TextBlock Text="Mode:" VerticalAlignment="Center"/>
+          <ComboBox Width="130"
+                    SelectedIndex="{Binding ModeIndex, Mode=TwoWay}">
+            <ComboBoxItem Content="Manual"/>
+            <ComboBoxItem Content="Auto"/>
+            <ComboBoxItem Content="AutoHold"/>
+          </ComboBox>
+          <Button Content="Auto ON/OFF" Command="{Binding ToggleAutoCommand}" />
+          <Button Content="Reset Handshake" Command="{Binding ResetHandshakeCommand}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="4" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+          <Button Content="Dashboard" Command="{Binding ShowDashboardCommand}" />
+          <Button Content="Detekce mezery" Command="{Binding ShowVisionCommand}" />
+          <Button Content="Obrazy kamer" Command="{Binding ShowCamerasCommand}" />
+          <Button Content="Regulace + PLC" Command="{Binding ShowRegPlcCommand}" />
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <!-- Main content -->
+    <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+
+    <!-- Bottom log -->
+    <Border Grid.Row="2" Padding="10" Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+      <StackPanel>
+        <TextBlock Text="Log:" FontWeight="Bold"/>
+        <ItemsControl ItemsSource="{Binding LogLines}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding}" FontFamily="Consolas" FontSize="12"/>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>
